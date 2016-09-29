@@ -5,11 +5,5 @@ const {
 } = Ember;
 
 export default function testSelector(key, value) {
-  let selector;
-  if (!isNone(value)) {
-    selector = `[data-test-${key}="${value}"]`;
-  } else {
-    selector = `[data-test-${key}]`;
-  }
-  return selector;
-};
+  return isNone(value) ? `[data-test-${key}]` : `[data-test-${key}="${value}"]`;
+}
