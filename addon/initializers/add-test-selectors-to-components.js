@@ -1,9 +1,16 @@
 import Ember from 'ember';
 
 const { getPrototypeOf } = Object;
-const { computed, Component } = Ember;
+const { computed, Component, get } = Ember;
 
-export default function addTestSelectorsToComponents() {
+const nameOfComponent = function nameOfComponent(component, config) {
+  let templateName = component._renderNode.lastResult.template.meta.moduleName;
+  templateName = templateName.replace(/\.hbs$/, '');
+  templateName = templateName.replace(new RegExp(`${config.modulePrefix}\/templates\/components\/`), '');
+  return templateName;
+}
+
+export default function addTestSelectorsToComponents(config) {
   Component.reopen({
     init() {
       let attributeBinding = `-data-test-component-selector:data-test-component`;
@@ -13,7 +20,7 @@ export default function addTestSelectorsToComponents() {
     },
 
     '-data-test-component-selector': computed(function() {
-      return getPrototypeOf(this)._debugContainerKey.replace(/^component:/, '');
+      return nameOfComponent(this, config);
     })
   });
 }
