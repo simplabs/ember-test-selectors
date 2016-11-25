@@ -1,4 +1,6 @@
-/*jshint node:true*/
+/* jshint node:true */
+'use strict';
+
 var _includes = require('lodash/includes');
 
 module.exports = {
