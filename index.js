@@ -4,7 +4,7 @@
 var _includes = require('lodash/includes');
 
 module.exports = {
-  name: 'test-selectors',
+  name: 'ember-test-selectors',
 
   setupPreprocessorRegistry: function(type, registry) {
     var appOptions = registry.app.options || {};
