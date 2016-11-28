@@ -1,5 +1,5 @@
-import { moduleForComponent, test } from "ember-qunit";
-import hbs from "htmlbars-inline-precompile";
+import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('data-test', 'StripTestSelectorsTransform plugin', {
   integration: true

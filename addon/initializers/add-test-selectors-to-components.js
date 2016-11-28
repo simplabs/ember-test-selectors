@@ -1,26 +1,25 @@
 import Ember from 'ember';
 
-const { getPrototypeOf } = Object;
-const { computed, Component, get } = Ember;
+const { Component } = Ember;
 
-const nameOfComponent = function nameOfComponent(component, config) {
-  let templateName = component._renderNode.lastResult.template.meta.moduleName;
-  templateName = templateName.replace(/\.hbs$/, '');
-  templateName = templateName.replace(new RegExp(`${config.modulePrefix}\/templates\/components\/`), '');
-  return templateName;
-}
+const bindDataTestAttributes = function bindDataTestAttributes(component) {
+  let dataTestAttributes = [];
+  for (let attr in component) {
+    if (attr.indexOf('data-test-') === 0) {
+      dataTestAttributes.push(attr);
+    }
+  }
 
-export default function addTestSelectorsToComponents(config) {
+  let attributeBindings = component.getWithDefault('attributeBindings', []);
+  component.set('attributeBindings', attributeBindings.concat(dataTestAttributes));
+};
+
+export default function addTestSelectorsToComponents() {
   Component.reopen({
     init() {
-      let attributeBinding = `-data-test-component-selector:data-test-component`;
-      this.attributeBindings = (this.attributeBindings || []).concat([attributeBinding]);
+      bindDataTestAttributes(this);
 
-      return this._super(...arguments);
-    },
-
-    '-data-test-component-selector': computed(function() {
-      return nameOfComponent(this, config);
-    })
+      this._super(...arguments);
+    }
   });
 }
