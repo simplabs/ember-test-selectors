@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "ember build",
+    "mocha": "mocha",
     "start": "ember server",
     "test": "ember try:each"
   },
