@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "mocha": "mocha",
+    "lint": "jshint config test-support tests *.js",
     "start": "ember server",
     "test": "ember try:each"
   },
@@ -27,7 +27,6 @@
     "ember-cli-htmlbars": "^1.0.10",
     "ember-cli-htmlbars-inline-precompile": "^0.3.3",
     "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-jshint": "^1.0.4",
     "ember-cli-qunit": "^3.0.1",
     "ember-cli-release": "^0.2.9",
     "ember-cli-sri": "^2.1.0",
@@ -38,16 +37,15 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "loader.js": "^4.0.10",
-    "mocha": "^1.21.4",
-    "mocha-jshint": "^2.3.1"
+    "jshint": "^2.9.4",
+    "loader.js": "^4.0.10"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
-     "lodash": "^4.0.0"
+    "lodash": "^4.0.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",

@@ -24,7 +24,7 @@ script:
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
   - npm test -- --skip-cleanup
-  - npm run mocha
+  - npm run lint
 
 notifications:
   email: false
