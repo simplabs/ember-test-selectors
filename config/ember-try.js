@@ -1,5 +1,6 @@
 /*jshint node:true*/
 module.exports = {
+  command: 'npm run test:both',
   useVersionCompatibility: true,
   scenarios: [
     {
