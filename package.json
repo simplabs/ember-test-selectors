@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "lint": "jshint config test-support tests *.js",
+    "lint": "eslint config test-support tests *.js",
     "start": "ember server",
     "test": "ember try:each"
   },
@@ -37,7 +37,7 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "jshint": "^2.9.4",
+    "eslint": "^3.12.2",
     "loader.js": "^4.0.10"
   },
   "keywords": [
