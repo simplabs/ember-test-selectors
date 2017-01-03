@@ -39,7 +39,7 @@
     "ember-data": "^2.10.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
-    "ember-load-initializers": "^0.5.1",
+    "ember-load-initializers": "^0.6.3",
     "ember-resolver": "^2.0.3",
     "eslint": "^3.12.2",
     "loader.js": "^4.0.10"
