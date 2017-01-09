@@ -3,7 +3,7 @@ import hbs from "htmlbars-inline-precompile";
 
 import config from 'dummy/config/environment';
 
-moduleForComponent('data-test', 'StripTestSelectorsTransform plugin', {
+moduleForComponent('data-test-component', 'StripTestSelectorsTransform plugin', {
   integration: true
 });
 
