@@ -5,11 +5,22 @@ module.exports = {
   name: 'test-selectors',
 
   _assignOptions: function(app) {
+    var ui = app.project.ui;
+
     var appOptions = app.options || {};
     var addonOptions = appOptions['ember-test-selectors'] || {};
-    var environments = addonOptions.environments || ['production'];
 
-    this._stripTestSelectors = (environments.indexOf(app.env) !== -1);
+    if (addonOptions.environments) {
+      ui.writeDeprecateLine('The "environments" option in "ember-test-selectors" has been replaced ' +
+        'with a "strip" option. Use e.g. "strip: EmberApp.env() === \'production\'" instead to ' +
+        'recreate the old behavior.', false);
+
+      this._stripTestSelectors = (addonOptions.environments.indexOf(app.env) !== -1);
+    } else if ('strip' in addonOptions) {
+      this._stripTestSelectors = addonOptions.strip;
+    } else {
+      this._stripTestSelectors = app.tests;
+    }
   },
 
   setupPreprocessorRegistry: function(type, registry) {
