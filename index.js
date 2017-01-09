@@ -12,7 +12,7 @@ module.exports = {
 
     if (addonOptions.environments) {
       ui.writeDeprecateLine('The "environments" option in "ember-test-selectors" has been replaced ' +
-        'with a "strip" option. Use e.g. "strip: EmberApp.env() === \'production\'" instead to ' +
+        'with the "strip" option. Use e.g. "strip: EmberApp.env() === \'production\'" instead to ' +
         'recreate the old behavior.', false);
 
       this._stripTestSelectors = (addonOptions.environments.indexOf(app.env) !== -1);
