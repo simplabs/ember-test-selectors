@@ -1,6 +1,4 @@
 /*jshint node:true*/
-var _ = require('lodash/lodash');
-
 var TEST_SELECTOR_PREFIX = /data-test-.*/;
 
 function StripTestSelectorsTransform() {
@@ -12,18 +10,9 @@ StripTestSelectorsTransform.prototype.transform = function(ast) {
 
   walker.visit(ast, function(node) {
     if (node.type === 'ElementNode') {
-      var attributesToDelete = [];
-      node.attributes.forEach(function(attribute) {
-        if (TEST_SELECTOR_PREFIX.test(attribute.name)) {
-          attributesToDelete.push(attribute.name);
-        }
+      node.attributes = node.attributes.filter(function(attribute) {
+        return !TEST_SELECTOR_PREFIX.test(attribute.name);
       });
-
-      if (attributesToDelete.length > 0) {
-        _.remove(node.attributes, function(attribute) {
-          return _.includes(attributesToDelete, attribute.name);
-        });
-      }
     }
   });
 
