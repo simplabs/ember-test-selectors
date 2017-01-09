@@ -4,13 +4,19 @@
 module.exports = {
   name: 'test-selectors',
 
+  _assignOptions: function(app) {
+    var appOptions = app.options || {};
+    var addonOptions = appOptions['ember-test-selectors'] || {};
+    var environments = addonOptions.environments || ['production'];
+
+    this._stripTestSelectors = (environments.indexOf(app.env) !== -1);
+  },
+
   setupPreprocessorRegistry: function(type, registry) {
     if (type === 'parent') {
-      var appOptions = registry.app.options || {};
-      var addonOptions = appOptions['ember-test-selectors'] || {};
-      var environments = addonOptions.environments || ['production'];
+      this._assignOptions(registry.app);
 
-      if (environments.indexOf(registry.app.env) !== -1) {
+      if (this._stripTestSelectors) {
         var StripTestSelectorsTransform = require('./strip-test-selectors');
 
         registry.add('htmlbars-ast-plugin', {
