@@ -22,8 +22,7 @@
     "test:strip": "STRIP_TEST_SELECTORS=true ember test"
   },
   "dependencies": {
-    "ember-cli-babel": "^5.1.7",
-    "lodash": "^4.0.0"
+    "ember-cli-babel": "^5.1.7"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",

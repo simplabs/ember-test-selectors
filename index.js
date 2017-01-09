@@ -1,8 +1,6 @@
 /* jshint node:true */
 'use strict';
 
-var _includes = require('lodash/includes');
-
 module.exports = {
   name: 'test-selectors',
 
@@ -11,7 +9,7 @@ module.exports = {
     var addonOptions = appOptions['ember-test-selectors'] || {};
     var environments = addonOptions.environments || ['production'];
 
-    if (_includes(environments, registry.app.env)) {
+    if (environments.indexOf(registry.app.env) !== -1) {
       var StripTestSelectorsTransform = require('./strip-test-selectors');
 
       registry.add('htmlbars-ast-plugin', {
