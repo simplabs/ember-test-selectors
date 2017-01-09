@@ -16,8 +16,8 @@
     "build": "ember build",
     "lint": "eslint config test-support tests *.js",
     "start": "ember server",
-    "test": "ember try:each",
-    "test:both": "npm run test:keep && npm run test:strip",
+    "test": "npm run test:keep && npm run test:strip",
+    "test:all": "ember try:each",
     "test:keep": "ember test",
     "test:strip": "STRIP_TEST_SELECTORS=true ember test"
   },
