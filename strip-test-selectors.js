@@ -13,6 +13,10 @@ StripTestSelectorsTransform.prototype.transform = function(ast) {
       node.attributes = node.attributes.filter(function(attribute) {
         return !TEST_SELECTOR_PREFIX.test(attribute.name);
       });
+    } else if (node.type === 'MustacheStatement' || node.type === 'BlockStatement') {
+      node.hash.pairs = node.hash.pairs.filter(function(pair) {
+        return !TEST_SELECTOR_PREFIX.test(pair.key);
+      });
     }
   });
 
