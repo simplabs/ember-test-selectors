@@ -14,7 +14,7 @@
   "repository": "https://github.com/simplabs/ember-test-selectors",
   "scripts": {
     "build": "ember build",
-    "lint": "eslint config test-support tests *.js",
+    "lint": "eslint addon app config test-support tests *.js",
     "start": "ember server",
     "test": "npm run test:keep && npm run test:strip",
     "test:all": "ember try:each",
