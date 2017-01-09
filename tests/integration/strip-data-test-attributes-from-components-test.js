@@ -10,50 +10,49 @@ moduleForComponent('print-test-attributes', 'StripTestSelectorsTransform plugin'
 if (config.stripTestSelectors) {
 
   test('it strips data-test-* attributes from components', function (assert) {
-    this.render(hbs`{{print-test-attributes data-test-attribute="foobar"}}`);
+    this.render(hbs`{{print-test-attributes data-test-first="foobar"}}`);
 
-    assert.equal(this.$('.attr').text(), '', 'the .attr div is empty');
+    assert.equal(this.$('.data-test-first').text(), '', 'the data-test-first was stripped');
   });
 
   test('it strips data-test-* attributes from components in block form', function (assert) {
-    this.render(hbs`{{#print-test-attributes data-test-attribute="foobar"}}hello{{/print-test-attributes}}`);
+    this.render(hbs`{{#print-test-attributes data-test-first="foobar"}}hello{{/print-test-attributes}}`);
 
-    assert.equal(this.$('.attr').text(), '', 'the .attr div is empty');
+    assert.equal(this.$('.data-test-first').text(), '', 'the data-test-first was stripped');
   });
 
   test('it works with multiple data-test-* attributes on components', function (assert) {
-    this.render(hbs`{{print-test-attributes data-test-attribute="foobar" data-test-second="second"}}`);
+    this.render(hbs`{{print-test-attributes data-test-first="foobar" data-test-second="second"}}`);
 
-    assert.equal(this.$('.attr').text(), '', 'the .attr div is empty');
-    assert.equal(this.$('.second').text(), '', 'the .second div is empty');
+    assert.equal(this.$('.data-test-first').text(), '', 'the data-test-first was stripped');
+    assert.equal(this.$('.data-test-second').text(), '', 'the data-test-second attribute was stripped');
   });
 
   test('it leaves other data attributes untouched, when a data-test-* attribute is present as well on components', function (assert) {
-    this.render(hbs`{{print-test-attributes data-test-attribute="foobar" data-non-test="baz"}}`);
+    this.render(hbs`{{print-test-attributes data-test-first="foobar" data-non-test="baz"}}`);
 
-    assert.equal(this.$('.attr').text(), '', 'the .attr div is empty');
-    assert.equal(this.$('.non-test').text(), 'baz', 'the .non-test div is not empty');
+    assert.equal(this.$('.data-test-first').text(), '', 'the data-test-first was stripped');
+    assert.equal(this.$('.data-non-test').text(), 'baz', 'the data-non-test attribute was not stripped');
   });
 
   test('it leaves data-test attributes untouched on components', function (assert) {
     this.render(hbs`{{print-test-attributes data-test="foo"}}`);
 
-    assert.equal(this.$('.data-test').text(), 'foo', 'the .data-test div is empty');
+    assert.equal(this.$('.data-test').text(), 'foo', 'the data-test attribute was stripped');
   });
 
   test('it leaves other data attributes untouched on components', function (assert) {
     this.render(hbs`{{print-test-attributes data-non-test="foo"}}`);
 
-    assert.equal(this.$('.non-test').text(), 'foo', 'the .non-test div is not empty');
+    assert.equal(this.$('.data-non-test').text(), 'foo', 'the data-non-test attribute was not stripped');
   });
 
 } else {
 
   test('it does not strip data-test-* attributes from components', function (assert) {
-    this.render(hbs`{{print-test-attributes data-test-attribute="foobar"}}`);
+    this.render(hbs`{{print-test-attributes data-test-first="foobar"}}`);
 
-    assert.equal(this.$('.attr').length, 1, 'the .attr div is present');
-    assert.equal(this.$('.attr').text(), 'foobar', 'the .attr div is not empty');
+    assert.equal(this.$('.data-test-first').text(), 'foobar', 'the data-test-first attribute was not stripped');
   });
 
 }
