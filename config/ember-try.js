@@ -1,4 +1,4 @@
-/*jshint node:true*/
+/* eslint-env node */
 module.exports = {
   command: 'npm run test:both',
   useVersionCompatibility: true,

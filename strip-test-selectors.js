@@ -1,4 +1,4 @@
-/*jshint node:true*/
+/* eslint-env node */
 var TEST_SELECTOR_PREFIX = /data-test-.*/;
 
 function StripTestSelectorsTransform() {
