@@ -37,5 +37,29 @@ module.exports = {
         });
       }
     }
-  }
+  },
+
+  treeForAddon: function() {
+    // remove our "addon" folder from the build if we're stripping test selectors
+    if (!this._stripTestSelectors) {
+      return this._super.treeForAddon.apply(this, arguments);
+    }
+  },
+
+  treeForApp: function() {
+    // remove our "app" folder from the build if we're stripping test selectors
+    if (!this._stripTestSelectors) {
+      return this._super.treeForApp.apply(this, arguments);
+    }
+  },
+
+  preprocessTree: function(type, tree) {
+    // remove the unit tests if we're testing ourself and are in strip mode.
+    // we do this because these tests depend on the "addon" and "app" folders being available,
+    // which is not the case if they are stripped out of the build.
+    if (type === 'test' && this._stripTestSelectors && this.project.name() === 'ember-test-selectors') {
+      tree = require('broccoli-stew').rm(tree, 'dummy/tests/unit/**/*.js');
+    }
+    return tree;
+  },
 };
