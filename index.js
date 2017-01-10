@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  name: 'test-selectors',
+  name: 'ember-test-selectors',
 
   _assignOptions: function(app) {
     var ui = app.project.ui;
