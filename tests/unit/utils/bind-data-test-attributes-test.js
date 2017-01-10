@@ -75,3 +75,26 @@ test('it does not add a data-test property', function(assert) {
 
   assert.deepEqual(instance.get('attributeBindings'), []);
 });
+
+test('it skips if attributeBindings is a computed property', function(assert) {
+  let Fixture = Ember.Object.extend({
+    attributeBindings: Ember.computed('prop', function() {
+      return [this.get('prop')];
+    }).readOnly(),
+
+    foo: 5,
+
+    'data-test-from-factory': 'foo',
+  });
+  let instance = Fixture.create({
+    prop: 'foo',
+
+    'data-test-from-invocation': 'bar',
+  });
+
+  assert.deepEqual(instance.get('attributeBindings'), ['foo']);
+
+  bindDataTestAttributes(instance);
+
+  assert.deepEqual(instance.get('attributeBindings'), ['foo']);
+});
