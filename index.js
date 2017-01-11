@@ -39,6 +39,22 @@ module.exports = {
     }
   },
 
+  included: function(app) {
+    this._super.included.apply(this, arguments);
+
+    // add the StripDataTestPropertiesPlugin to the list of plugins used by
+    // the `ember-cli-babel` addon
+    if (this._stripTestSelectors && !this._registeredWithBabel) {
+      app.options = app.options || {};
+      app.options.babel = app.options.babel || {};
+      app.options.babel.plugins = app.options.babel.plugins || [];
+
+      app.options.babel.plugins.push(require('./strip-data-test-properties-plugin'));
+
+      this._registeredWithBabel = true;
+    }
+  },
+
   treeForAddon: function() {
     // remove our "addon" folder from the build if we're stripping test selectors
     if (!this._stripTestSelectors) {
