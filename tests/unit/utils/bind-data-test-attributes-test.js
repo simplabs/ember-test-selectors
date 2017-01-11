@@ -42,6 +42,26 @@ test('it adds to existing attributeBindings array', function(assert) {
     ['foo', 'bar', 'data-test-from-invocation', 'data-test-from-factory']);
 });
 
+test('it converts existing attributeBindings string to array', function(assert) {
+  let Fixture = Ember.Object.extend({
+    attributeBindings: 'foo',
+
+    foo: 1,
+
+    'data-test-from-factory': 'foo',
+  });
+  let instance = Fixture.create({
+    'data-test-from-invocation': 'bar',
+  });
+
+  assert.deepEqual(instance.get('attributeBindings'), 'foo');
+
+  bindDataTestAttributes(instance);
+
+  assert.deepEqual(instance.get('attributeBindings'),
+    ['foo', 'data-test-from-invocation', 'data-test-from-factory']);
+});
+
 test('it only adds data-test-* properties', function(assert) {
   let Fixture = Ember.Object.extend({
     foo: 1,

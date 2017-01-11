@@ -15,6 +15,10 @@ export default function bindDataTestAttributes(component) {
 
   let attributeBindings = component.getWithDefault('attributeBindings', []);
 
+  if (!Ember.isArray(attributeBindings)) {
+    attributeBindings = [attributeBindings];
+  }
+
   for (let attr in component) {
     if (TEST_SELECTOR_PREFIX.test(attr)) {
       attributeBindings.push(attr);
