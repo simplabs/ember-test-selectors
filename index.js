@@ -19,7 +19,7 @@ module.exports = {
     } else if ('strip' in addonOptions) {
       this._stripTestSelectors = addonOptions.strip;
     } else {
-      this._stripTestSelectors = app.tests;
+      this._stripTestSelectors = !app.tests;
     }
   },
 
