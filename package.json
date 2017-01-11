@@ -25,6 +25,7 @@
     "ember-cli-babel": "^5.1.7"
   },
   "devDependencies": {
+    "babel-core": "^5.8.38",
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-stew": "^1.4.0",
     "ember-ajax": "^2.4.1",
@@ -45,7 +46,8 @@
     "ember-load-initializers": "^0.6.3",
     "ember-resolver": "^2.0.3",
     "eslint": "^3.12.2",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "mocha": "^3.2.0"
   },
   "engines": {
     "node": ">= 0.12.0"
