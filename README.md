@@ -14,13 +14,16 @@ This Ember CLI Addon __removes all HTML 5 data attributes starting with
 attributes as element selectors in integration and acceptance tests without
 polluting the markup that is delivered to the end user.
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
 ```bash
 ember install ember-test-selectors
 ```
 
-## Why use `data` attributes as test selectors?
+
+Why use `data` attributes as test selectors?
+------------------------------------------------------------------------------
 
 Integration and acceptance tests usually __interact with and assert on the
 presence of certain elements__ in the markup that an application renders. These
@@ -100,7 +103,10 @@ delivered__:
 </article>
 ```
 
-## Configuration
+
+Configuration
+------------------------------------------------------------------------------
+
 To modify the default configuration, place a block called `ember-test-selectors`
 in your `ember-cli-build.js` file.
 
@@ -119,7 +125,9 @@ var app = new EmberApp({
 });
 ```
 
-## Test Helpers
+
+Test Helpers
+------------------------------------------------------------------------------
 
 `ember-test-selectors` comes with a test helper that can be used in acceptance
 and integration tests:
@@ -147,7 +155,9 @@ this.$(testSelector('post-title')).click() // => this.$('[data-test-post-title]'
 this.$(testSelector('selector', 'post-title')).click() // => this.$('[data-test-selector="post-title"]').click()
 ```
 
-## License
+
+License
+------------------------------------------------------------------------------
 
 ember-test-selectors is developed by and &copy;
 [simplabs GmbH](http://simplabs.com) and contributors. It is released under the
