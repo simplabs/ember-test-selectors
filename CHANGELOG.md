@@ -1,3 +1,14 @@
+# 0.1.0
+
+* Removed unnecessary `lodash` dependency (#37)
+* Added `data-test-*` attribute stripping to component and helper
+  invocations in Handlebars files (#40)
+* Added `strip` and deprecated `environments` options (#42)
+* Added automatic binding for `data-test-*` properties in components (#27)
+* Simplified `testSelector()` import to `ember-test-helpers` (#43)
+* Added Babel plugin that automatically removed `data-test-*` keys from
+  all objects including components and controllers (#45) 
+
 # 0.0.5
 
 * the `testSelector` helper now treats empty but non-none values (like `0`)
