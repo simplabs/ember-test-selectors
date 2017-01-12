@@ -68,6 +68,45 @@ this.$(testSelector('post-title')).click() // => this.$('[data-test-post-title]'
 this.$(testSelector('resource-id', '2')).click() // => this.$('[data-test-resource-id="2"]').click()
 ```
 
+### Usage in Components
+
+You can also use `data-test-*` attributes on components:
+
+```handlebars
+{{comments-list data-test-comments-for=post.id}}
+```
+
+These `data-test-*` attributes will be bound automatically and available
+as data attributes on the `<div>` wrapping the component template:
+
+```html
+<div id="ember123" data-test-comments-for="42">
+  <!-- comments -->
+</div>
+```
+
+### Usage in Computed Properties
+
+Instead of assigning `data-test-comment-id` in this example template:
+
+```handlebars
+{{#each comments as |comment|}}
+  {{comment-list-item comment=comment data-test-comment-id=comment.id}}
+{{/each}}
+```
+
+you may also use computed properties on the component:
+
+```js
+export default Ember.Component({
+  comment: null,
+  'data-test-comment-id': Ember.computed.readOnly('comment.id'),
+});
+```
+
+As with `data-test-*` attributes in the templates, these properties, whether
+computed or not, will be removed automatically in production builds.
+
 
 Configuration
 ------------------------------------------------------------------------------
