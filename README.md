@@ -51,7 +51,7 @@ automatically removed from `production` builds:
 </article>
 ```
 
-Once you've done that you can use our `testSelector()` function to create
+Once you've done that you can use the `testSelector()` function to create
 a CSS/jQuery selector that looks up the right elements:
 
 ```js
