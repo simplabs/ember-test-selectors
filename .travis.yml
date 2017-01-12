@@ -28,6 +28,15 @@ script:
   - npm run test:node
   - npm run lint
 
+deploy:
+  provider: npm
+  email: info@simplabs.com
+  api_key:
+    secure: W+Rd93/PCfsCFxEhsp3F9thwBfOomf149DtgzrpPfGkFSaAiUg3viFi4A/Qna50hgWTyqIZB+cF28mXXw6NZBc5WjzEXvd0jmfT7/Dz17gdGNyOwtgZLgjhCeipniWeLMCfiJ0rseHmzTmafqTpOM9uRzufywX8E5X3/RAvXVAn5jRi2WT2Lg1vpZiXyGy/iCTcfp+hrPmF01xF5ibzDkY3DKBe+a0l4Q4n6H2s1qHdXIRqRmyHWaQZzjlsyeWYwSLX07zd2gIm7Or47HbXiw/zWKseASwI02D2aafmjUFrYpEF0d2CHobSWsrnoFmgzVYw1I6NJ6vuLCGKbA5VJES5IWK5qAbw9EGD6qCPudyqPUKB2s4N0C+NiTLoiK/BCU7eMRkzPOU0smENliz4dsw36rCMUY7FqOZFaxs4+CP+90pRMTXNXBwtZB8YraFdBBh/8KIB53TyfpUw7C1W3Q+zHMzuOi8K5Wa3M5yhEsWdMEzTwfvNBYzxjlXMhTU12CURP02hHQHJuGMW5A7XTVEVWSZECOo8+Wo6EH8oXXNBlj+JzudJB8qmd5MGyN81m2VoTpJ9toumg7I9xaTdNZshOr9jXCkxHAQBObpO8KfcFnLeS68tAsNYtPst0uEdEeGPs8KWg18lcVcg0LY37VBefDWBOynpvkh0+sNTotP8=
+  on:
+    tags: true
+    repo: simplabs/ember-test-selectors
+
 notifications:
   email: false
   slack:
