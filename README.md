@@ -38,56 +38,56 @@ ember install ember-test-selectors
 ```
 
 
+Usage
+------------------------------------------------------------------------------
+
+In your templates you are now able to use `data-test-*` attributes, which are
+automatically removed from `production` builds:
+
+```hbs
+<article>
+  <h1 data-test-post-title data-test-resource-id="{{post.id}}">{{post.title}}</h1>
+  <p>{{post.body}}</p>
+</article>
+```
+
+Once you've done that you can use our `testSelector()` function to create
+a CSS/jQuery selector that looks up the right elements:
+
+```js
+import testSelector from 'ember-test-selectors';
+
+// in Acceptance Tests:
+
+find(testSelector('post-title')) // => find('[data-test-post-title]')
+find(testSelector('resource-id', '2')) // => find('[data-test-resource-id="2"]')
+
+// in Component Integration Tests:
+
+this.$(testSelector('post-title')).click() // => this.$('[data-test-post-title]').click()
+this.$(testSelector('resource-id', '2')).click() // => this.$('[data-test-resource-id="2"]').click()
+```
+
+
 Configuration
 ------------------------------------------------------------------------------
 
-To modify the default configuration, place a block called `ember-test-selectors`
-in your `ember-cli-build.js` file.
+You can override when the `data-test-*` attributes should be stripped from the
+build by modifying your `ember-cli-build.js` file:
 
-### Options
-
-`environments`
-Defines the environments in which you want the test selectors to be removed.
-By default, selectors are only removed in the `production` environment. You
-might also want to remove them in other staging environments for testing.
-
-```javascript
+```js
 var app = new EmberApp({
   'ember-test-selectors': {
-    environments: ['production', 'staging']
+    strip: false
   }
 });
 ```
 
-
-Test Helpers
-------------------------------------------------------------------------------
-
-`ember-test-selectors` comes with a test helper that can be used in acceptance
-and integration tests:
-
-* `testSelector('post-title')`: Returns a selector `[data-test-post-title]`
-* `testSelector('resource-id', '2')`: Returns a selector `[data-test-resource-id="2"]`
-
-The test helpers can be imported from the `ember-test-selectors` module:
-
-```javascript
-import testSelector from 'ember-test-selectors';
-```
-
-### Acceptance Test Usage
-
-```js
-find(testSelector('post-title')) // => find('[data-test-post-title]')
-find(testSelector('selector', 'post-title')) // => find('[data-test-selector="post-title"]')
-```
-
-### Integration Test Usage
-
-```js
-this.$(testSelector('post-title')).click() // => this.$('[data-test-post-title]').click()
-this.$(testSelector('selector', 'post-title')).click() // => this.$('[data-test-selector="post-title"]').click()
-```
+`strip` accepts a `Boolean` value and defaults to `!app.tests`, which means
+that the attributes will be stripped for production builds, unless the build
+was triggered by `ember test`. That means that if you use
+`ember test --environment=production` the test selectors will still work, but
+for `ember build -prod` they will be stripped out.
 
 
 License
