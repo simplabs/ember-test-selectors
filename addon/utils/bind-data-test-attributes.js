@@ -14,6 +14,16 @@ export default function bindDataTestAttributes(component) {
     return;
   }
 
+  let tagName = component.get('tagName');
+  if (tagName === '') {
+    let message = `ember-test-selectors could not bind data-test-* properties on ${component} ` +
+      `automatically because tagName is empty.`;
+
+    return Ember.warn(message, false, {
+      id: 'ember-test-selectors.empty-tag-name',
+    });
+  }
+
   let computedBindings = component.attributeBindings && component.attributeBindings.isDescriptor;
   if (computedBindings) {
     let message = `ember-test-selectors could not bind data-test-* properties on ${component} ` +
