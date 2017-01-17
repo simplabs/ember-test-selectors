@@ -93,7 +93,7 @@ test('it does not add a data-test property', function(assert) {
 
   bindDataTestAttributes(instance);
 
-  assert.deepEqual(instance.get('attributeBindings'), []);
+  assert.deepEqual(instance.get('attributeBindings'), undefined);
 });
 
 test('it skips if attributeBindings is a computed property', function(assert) {
