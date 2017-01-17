@@ -37,16 +37,6 @@ Installation
 ember install ember-test-selectors
 ```
 
-When you install the addon, it should automatically generate a helper located at
-`tests/helpers/test-selectors.js` as well as add an import to load that helper
-in `tests/test-helper.js`. This sets up the component `data-test-*` auto-binding
-for integration tests.
-
-You can do this manually as well:
-
-```
-$ ember generate ember-test-selectors
-```
 
 Usage
 ------------------------------------------------------------------------------

@@ -53,19 +53,16 @@ module.exports = {
 
       this._registeredWithBabel = true;
     }
+
+    if (!this._stripTestSelectors) {
+      app.import('vendor/ember-test-selectors/patch-component.js');
+    }
   },
 
   treeForAddon: function() {
     // remove our "addon" folder from the build if we're stripping test selectors
     if (!this._stripTestSelectors) {
       return this._super.treeForAddon.apply(this, arguments);
-    }
-  },
-
-  treeForApp: function() {
-    // remove our "app" folder from the build if we're stripping test selectors
-    if (!this._stripTestSelectors) {
-      return this._super.treeForApp.apply(this, arguments);
     }
   },
 
