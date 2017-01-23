@@ -58,5 +58,10 @@
     "versionCompatibility": {
       "ember": ">1.13"
     }
+  },
+  "greenkeeper": {
+    "ignore": [
+      "babel-core"
+    ]
   }
 }
