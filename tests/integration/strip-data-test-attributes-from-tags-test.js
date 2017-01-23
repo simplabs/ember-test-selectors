@@ -17,7 +17,7 @@ if (config.stripTestSelectors) {
   });
 
   test('it works with multiple data-test-* attributes on HTML tags', function (assert) {
-    this.render(hbs`<span data-test-first data-test-second"second-id" ></span>`);
+    this.render(hbs`<span data-test-first data-test-second="second-id" ></span>`);
 
     assert.equal(this.$('span').length, 1, 'the span is present');
     assert.equal(this.$('span[data-test-first]').length, 0, 'data-test-first is stripped');
