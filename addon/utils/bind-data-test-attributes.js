@@ -37,6 +37,8 @@ export default function bindDataTestAttributes(component) {
   let attributeBindings = component.getWithDefault('attributeBindings', []);
   if (!Ember.isArray(attributeBindings)) {
     attributeBindings = [attributeBindings];
+  } else {
+    attributeBindings = attributeBindings.slice();
   }
 
   dataTestProperties.forEach(it => attributeBindings.push(it));
