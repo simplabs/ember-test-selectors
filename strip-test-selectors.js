@@ -1,12 +1,15 @@
+'use strict';
+
 /* eslint-env node */
-var TEST_SELECTOR_PREFIX = /data-test-.*/;
+
+let TEST_SELECTOR_PREFIX = /data-test-.*/;
 
 function StripTestSelectorsTransform() {
   this.syntax = null;
 }
 
 StripTestSelectorsTransform.prototype.transform = function(ast) {
-  var walker = new this.syntax.Walker();
+  let walker = new this.syntax.Walker();
 
   walker.visit(ast, function(node) {
     if (node.type === 'ElementNode') {

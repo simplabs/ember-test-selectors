@@ -1,5 +1,8 @@
+'use strict';
+
 /* eslint-env node */
-var TEST_SELECTOR_PREFIX = /data-test-.*/;
+
+let TEST_SELECTOR_PREFIX = /data-test-.*/;
 
 function TransformTestSelectorParamsToHashPairs() {
   this.syntax = null;
@@ -11,13 +14,13 @@ function isTestSelectorParam(param) {
 }
 
 TransformTestSelectorParamsToHashPairs.prototype.transform = function(ast) {
-  var b = this.syntax.builders;
-  var walker = new this.syntax.Walker();
+  let b = this.syntax.builders;
+  let walker = new this.syntax.Walker();
 
   walker.visit(ast, function(node) {
     if (node.type === 'MustacheStatement' || node.type === 'BlockStatement') {
-      var testSelectorParams = [];
-      var otherParams = [];
+      let testSelectorParams = [];
+      let otherParams = [];
 
       node.params.forEach(function(param) {
         if (isTestSelectorParam(param)) {
@@ -30,7 +33,7 @@ TransformTestSelectorParamsToHashPairs.prototype.transform = function(ast) {
       node.params = otherParams;
 
       testSelectorParams.forEach(function(param) {
-        var pair = b.pair(param.original, b.boolean(true));
+        let pair = b.pair(param.original, b.boolean(true));
         node.hash.pairs.push(pair);
       });
     }

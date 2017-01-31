@@ -1,10 +1,13 @@
+'use strict';
+
 /* eslint-env node */
-var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+
+let EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
-  var stripTestSelectors = process.env['STRIP_TEST_SELECTORS'];
+  let stripTestSelectors = process.env['STRIP_TEST_SELECTORS'];
 
-  var app = new EmberAddon(defaults, {
+  let app = new EmberAddon(defaults, {
     'ember-test-selectors': {
       strip: Boolean(stripTestSelectors)
     }

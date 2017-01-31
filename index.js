@@ -1,14 +1,15 @@
-/* eslint-env node */
 'use strict';
+
+/* eslint-env node */
 
 module.exports = {
   name: 'ember-test-selectors',
 
-  _assignOptions: function(app) {
-    var ui = app.project.ui;
+  _assignOptions(app) {
+    let ui = app.project.ui;
 
-    var appOptions = app.options || {};
-    var addonOptions = appOptions['ember-test-selectors'] || {};
+    let appOptions = app.options || {};
+    let addonOptions = appOptions['ember-test-selectors'] || {};
 
     if (addonOptions.environments) {
       ui.writeDeprecateLine('The "environments" option in "ember-test-selectors" has been replaced ' +
@@ -23,31 +24,31 @@ module.exports = {
     }
   },
 
-  setupPreprocessorRegistry: function(type, registry) {
+  setupPreprocessorRegistry(type, registry) {
     if (type === 'parent') {
       this._assignOptions(registry.app);
 
       if (this._stripTestSelectors) {
-        var StripTestSelectorsTransform = require('./strip-test-selectors');
+        let StripTestSelectorsTransform = require('./strip-test-selectors');
 
         registry.add('htmlbars-ast-plugin', {
           name: 'strip-test-selectors',
           plugin: StripTestSelectorsTransform,
-          baseDir: function() { return __dirname; }
+          baseDir() { return __dirname; }
         });
       } else {
-        var TransformTestSelectorParamsToHashPairs = require('./transform-test-selector-params-to-hash-pairs');
+        let TransformTestSelectorParamsToHashPairs = require('./transform-test-selector-params-to-hash-pairs');
 
         registry.add('htmlbars-ast-plugin', {
           name: 'transform-test-selector-params-to-hash-pairs',
           plugin: TransformTestSelectorParamsToHashPairs,
-          baseDir: function() { return __dirname; }
+          baseDir() { return __dirname; }
         });
       }
     }
   },
 
-  included: function(app) {
+  included(app) {
     this._super.included.apply(this, arguments);
 
     // add the StripDataTestPropertiesPlugin to the list of plugins used by
@@ -67,14 +68,14 @@ module.exports = {
     }
   },
 
-  treeForAddon: function() {
+  treeForAddon() {
     // remove our "addon" folder from the build if we're stripping test selectors
     if (!this._stripTestSelectors) {
       return this._super.treeForAddon.apply(this, arguments);
     }
   },
 
-  preprocessTree: function(type, tree) {
+  preprocessTree(type, tree) {
     // remove the unit tests if we're testing ourself and are in strip mode.
     // we do this because these tests depend on the "addon" and "app" folders being available,
     // which is not the case if they are stripped out of the build.

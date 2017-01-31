@@ -1,9 +1,13 @@
-var TEST_SELECTOR_PREFIX = /data-test-.*/;
+'use strict';
+
+/* eslint-env node */
+
+let TEST_SELECTOR_PREFIX = /data-test-.*/;
 
 function StripDataTestPropertiesPlugin(babel) {
   return new babel.Plugin('ember-test-selectors', {
     visitor: {
-      Property: function(node) {
+      Property(node) {
         if (TEST_SELECTOR_PREFIX.test(node.key.value)) {
           this.dangerouslyRemove();
         }
