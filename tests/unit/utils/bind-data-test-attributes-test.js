@@ -3,10 +3,12 @@ import Ember from 'ember';
 
 import bindDataTestAttributes from 'ember-test-selectors/utils/bind-data-test-attributes';
 
+const { Object: EmberObject, computed } = Ember;
+
 module('Unit | Utility | bind data test attributes');
 
 test('it adds missing attributeBindings array', function(assert) {
-  let Fixture = Ember.Object.extend({
+  let Fixture = EmberObject.extend({
     'data-test-from-factory': 'foo',
   });
   let instance = Fixture.create({
@@ -22,7 +24,7 @@ test('it adds missing attributeBindings array', function(assert) {
 });
 
 test('it adds to existing attributeBindings array', function(assert) {
-  let Fixture = Ember.Object.extend({
+  let Fixture = EmberObject.extend({
     attributeBindings: ['foo', 'bar'],
 
     foo: 1,
@@ -43,7 +45,7 @@ test('it adds to existing attributeBindings array', function(assert) {
 });
 
 test('it converts existing attributeBindings string to array', function(assert) {
-  let Fixture = Ember.Object.extend({
+  let Fixture = EmberObject.extend({
     attributeBindings: 'foo',
 
     foo: 1,
@@ -63,7 +65,7 @@ test('it converts existing attributeBindings string to array', function(assert) 
 });
 
 test('it only adds data-test-* properties', function(assert) {
-  let Fixture = Ember.Object.extend({
+  let Fixture = EmberObject.extend({
     foo: 1,
     bar: 2,
 
@@ -84,7 +86,7 @@ test('it only adds data-test-* properties', function(assert) {
 });
 
 test('it does not add a data-test property', function(assert) {
-  let Fixture = Ember.Object.extend({
+  let Fixture = EmberObject.extend({
     'data-test': 'foo',
   });
   let instance = Fixture.create();
@@ -97,8 +99,8 @@ test('it does not add a data-test property', function(assert) {
 });
 
 test('it skips if attributeBindings is a computed property', function(assert) {
-  let Fixture = Ember.Object.extend({
-    attributeBindings: Ember.computed('prop', function() {
+  let Fixture = EmberObject.extend({
+    attributeBindings: computed('prop', function() {
       return [this.get('prop')];
     }).readOnly(),
 
@@ -120,7 +122,7 @@ test('it skips if attributeBindings is a computed property', function(assert) {
 });
 
 test('it skips if tagName is empty', function(assert) {
-  let Fixture = Ember.Object.extend({
+  let Fixture = EmberObject.extend({
     tagName: '',
     'data-test-from-factory': 'foo',
   });

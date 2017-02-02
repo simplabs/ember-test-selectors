@@ -14,7 +14,7 @@
   "repository": "https://github.com/simplabs/ember-test-selectors",
   "scripts": {
     "build": "ember build",
-    "lint": "eslint addon app config test-support tests *.js",
+    "lint": "eslint app addon blueprints config server test-support tests *.js",
     "start": "ember server",
     "test": "npm run test:keep && npm run test:strip",
     "test:all": "ember try:each",
@@ -33,6 +33,7 @@
     "ember-cli": "2.11.0",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-dependency-checker": "^1.3.0",
+    "ember-cli-eslint": "3.0.2",
     "ember-cli-htmlbars": "1.1.1",
     "ember-cli-htmlbars-inline-precompile": "^0.3.3",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -50,6 +51,8 @@
     "ember-source": "^2.11.0",
     "eslint": "^3.12.2",
     "eslint-config-simplabs": "^0.3.0",
+    "eslint-plugin-ember": "^2.0.1",
+    "eslint-plugin-qunit": "^2.3.0",
     "loader.js": "^4.0.10",
     "mocha": "^3.2.0"
   },

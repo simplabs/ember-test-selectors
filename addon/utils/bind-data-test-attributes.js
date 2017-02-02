@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { warn, isArray } = Ember;
+
 const TEST_SELECTOR_PREFIX = /data-test-.*/;
 
 export default function bindDataTestAttributes(component) {
@@ -19,7 +21,7 @@ export default function bindDataTestAttributes(component) {
     let message = `ember-test-selectors could not bind data-test-* properties on ${component} ` +
       `automatically because tagName is empty.`;
 
-    return Ember.warn(message, false, {
+    return warn(message, false, {
       id: 'ember-test-selectors.empty-tag-name',
     });
   }
@@ -29,13 +31,13 @@ export default function bindDataTestAttributes(component) {
     let message = `ember-test-selectors could not bind data-test-* properties on ${component} ` +
       `automatically because attributeBindings is a computed property.`;
 
-    return Ember.warn(message, false, {
+    return warn(message, false, {
       id: 'ember-test-selectors.computed-attribute-bindings',
     });
   }
 
   let attributeBindings = component.getWithDefault('attributeBindings', []);
-  if (!Ember.isArray(attributeBindings)) {
+  if (!isArray(attributeBindings)) {
     attributeBindings = [attributeBindings];
   } else {
     attributeBindings = attributeBindings.slice();

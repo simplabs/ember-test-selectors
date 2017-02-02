@@ -1,11 +1,6 @@
 module.exports = {
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: 'module'
-  },
-  env: {
-    node: null,
-    browser: true,
-    embertest: true,
-  },
+  extends: [
+    'simplabs/configs/ember-qunit',
+    'simplabs/plugins/qunit',
+  ],
 };
