@@ -46,7 +46,7 @@
     "ember-data": "^2.11.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
-    "ember-load-initializers": "^0.6.3",
+    "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^3.0.0",
     "ember-source": "~2.12.0",
     "eslint": "^3.12.2",
