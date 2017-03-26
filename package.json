@@ -57,13 +57,13 @@
     "configPath": "tests/dummy/config",
     "versionCompatibility": {
       "ember": ">=1.13"
-    },
-    "greenkeeper": {
-      "ignore": [
-        "babel-core",
-        "eslint-plugin-ember",
-        "eslint-plugin-qunit"
-      ]
     }
+  },
+  "greenkeeper": {
+    "ignore": [
+      "babel-core",
+      "eslint-plugin-ember",
+      "eslint-plugin-qunit"
+    ]
   }
 }
