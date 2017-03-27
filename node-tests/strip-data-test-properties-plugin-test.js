@@ -1,8 +1,9 @@
 var fs = require('fs');
 var assert = require('assert');
+var multidepRequire = require('multidep')('node-tests/multidep.json');
 
-var babel = require('babel-core');
-var StripDataTestPropertiesPlugin = require('../strip-data-test-properties-plugin');
+var babel5 = multidepRequire('babel-core', '5.8.33');
+var StripDataTestPropertiesPlugin5 = require('../strip-data-test-properties-plugin');
 
 function testFixture(name) {
   it('fixture: ' + name, function() {
@@ -10,8 +11,8 @@ function testFixture(name) {
     var expectedPath = __dirname + '/fixtures/' + name + '/expected.js';
 
     var expected = fs.readFileSync(expectedPath).toString();
-    var result = babel.transformFileSync(fixturePath, {
-      plugins: [StripDataTestPropertiesPlugin],
+    var result = babel5.transformFileSync(fixturePath, {
+      plugins: [StripDataTestPropertiesPlugin5],
     });
 
     assert.strictEqual(result.code.trim(), expected.trim());

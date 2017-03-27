@@ -19,6 +19,7 @@
     "test": "npm run test:keep && npm run test:strip",
     "test:all": "ember try:each",
     "test:keep": "ember test",
+    "pretest:node": "multidep node-tests/multidep.json",
     "test:node": "mocha node-tests",
     "test:strip": "STRIP_TEST_SELECTORS=true ember test"
   },
@@ -48,7 +49,8 @@
     "eslint-plugin-ember": "^3.0.1",
     "eslint-plugin-qunit": "^2.3.0",
     "loader.js": "^4.0.10",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "multidep": "^2.0.2"
   },
   "engines": {
     "node": ">= 4"

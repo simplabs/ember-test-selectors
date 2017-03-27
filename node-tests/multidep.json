@@ -1,0 +1,6 @@
+{
+  "path": "node-tests/multidep_modules",
+  "versions": {
+    "babel-core": ["5.8.33"]
+  }
+}
