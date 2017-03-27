@@ -2,6 +2,8 @@
 
 /* eslint-env node */
 
+const VersionChecker = require('ember-cli-version-checker');
+
 module.exports = {
   name: 'ember-test-selectors',
 
@@ -54,11 +56,20 @@ module.exports = {
     // add the StripDataTestPropertiesPlugin to the list of plugins used by
     // the `ember-cli-babel` addon
     if (this._stripTestSelectors && !this._registeredWithBabel) {
+      let checker = new VersionChecker(this).for('ember-cli-babel', 'npm');
+
       app.options = app.options || {};
       app.options.babel = app.options.babel || {};
       app.options.babel.plugins = app.options.babel.plugins || [];
 
-      app.options.babel.plugins.push(require('./strip-data-test-properties-plugin'));
+      if (checker.satisfies('^5.0.0')) {
+        app.options.babel.plugins.push(require('./strip-data-test-properties-plugin'));
+      } else if (checker.satisfies('^6.0.0-beta.1')) {
+        app.options.babel.plugins.push(require('./strip-data-test-properties-plugin6'));
+      } else {
+        this.ui.writeWarnLine('ember-test-selectors: You are using an unsupported ember-cli-babel version. data-test ' +
+          'properties are not automatically stripped from your JS code.');
+      }
 
       this._registeredWithBabel = true;
     }
