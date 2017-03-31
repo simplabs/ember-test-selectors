@@ -9,6 +9,12 @@ moduleForComponent('print-test-attributes', 'StripTestSelectorsTransform plugin'
 
 if (config.stripTestSelectors) {
 
+  test('it strips data-test-* attributes from components with positional params', function(assert) {
+    this.render(hbs`{{print-test-attributes "param1" data-test-first}}`);
+
+    assert.equal(this.$('.data-test-positional-params').text(), 1, 'there should be only one param');
+  });
+
   test('it strips data-test-* attributes from components', function(assert) {
     this.render(hbs`{{print-test-attributes data-test-first="foobar"}}`);
 
