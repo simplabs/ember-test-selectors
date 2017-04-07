@@ -3,7 +3,6 @@
 /* eslint-env node */
 
 const VersionChecker = require('ember-cli-version-checker');
-const Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'ember-test-selectors',
@@ -80,20 +79,11 @@ module.exports = {
     }
   },
 
-  treeForAddonTestSupport(tree) {
-    // intentionally not calling _super here
-    // so that can have our `import`'s be
-    // import testSelector from 'ember-test-selectors';
-
-    let namespacedTree = new Funnel(tree, {
-      srcDir: '/',
-      destDir: `/${this.moduleName()}`,
-      annotation: `Addon#treeForTestSupport (${this.name})`,
-    });
-
-    return this.preprocessJs(namespacedTree, '/', this.name, {
-      registry: this.registry,
-    });
+  treeForAddon() {
+    // remove our "addon" folder from the build if we're stripping test selectors
+    if (!this._stripTestSelectors) {
+      return this._super.treeForAddon.apply(this, arguments);
+    }
   },
 
   preprocessTree(type, tree) {

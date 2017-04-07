@@ -24,8 +24,6 @@
     "test:strip": "STRIP_TEST_SELECTORS=true ember test"
   },
   "dependencies": {
-    "broccoli-funnel": "^1.1.0",
-    "broccoli-stew": "^1.4.0",
     "ember-cli-babel": "^5.1.7",
     "ember-cli-version-checker": "^1.2.0"
   },
