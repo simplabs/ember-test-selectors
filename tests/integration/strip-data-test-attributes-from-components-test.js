@@ -18,7 +18,7 @@ if (config.stripTestSelectors) {
   test('it strips data-test-* attributes from components with positional params data-test-* as first param', function(assert) {
     this.render(hbs`{{print-test-attributes data-test-should-not-be "param1"}}`);
 
-    assert.equal(this.$('.data-test-positional-params').text(), 1, 'there should be no params');
+    assert.equal(this.$('.data-test-positional-params').text(), 1, 'there should be only one param');
   });
 
   test('it strips data-test-* attributes from components with multiple positional params', function(assert) {
