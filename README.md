@@ -11,7 +11,6 @@ ember-test-selectors
 
 Enabling better element selectors in [Ember.js](http://emberjs.com) tests
 
-
 Features
 ------------------------------------------------------------------------------
 
@@ -28,6 +27,9 @@ Features
 
 More information on why that is useful are available on our
 [blog](http://simplabs.com/blog/2016/03/04/ember-test-selectors.html)!
+
+EmberMap also has a
+[great video introducing ember-test-selectors](https://embermap.com/video/ember-test-selectors).
 
 
 Installation
