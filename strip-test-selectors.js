@@ -4,8 +4,8 @@
 
 let TEST_SELECTOR_PREFIX = /data-test-.*/;
 
-function isNotTestSelector(attribute) {
-  return !TEST_SELECTOR_PREFIX.test(attribute);
+function isTestSelector(attribute) {
+  return TEST_SELECTOR_PREFIX.test(attribute);
 }
 
 function StripTestSelectorsTransform() {
@@ -18,15 +18,15 @@ StripTestSelectorsTransform.prototype.transform = function(ast) {
   walker.visit(ast, function(node) {
     if (node.type === 'ElementNode') {
       node.attributes = node.attributes.filter(function(attribute) {
-        return isNotTestSelector(attribute.name);
+        return !isTestSelector(attribute.name);
       });
     } else if (node.type === 'MustacheStatement' || node.type === 'BlockStatement') {
       node.params = node.params.filter(function(param) {
-        return isNotTestSelector(param.original);
+        return !isTestSelector(param.original);
       });
 
       node.hash.pairs = node.hash.pairs.filter(function(pair) {
-        return isNotTestSelector(pair.key);
+        return !isTestSelector(pair.key);
       });
     }
   });
