@@ -1,5 +1,4 @@
-ember-test-selectors
-==============================================================================
+# ember-test-selectors
 
 [![Latest NPM release][npm-badge]][npm-badge-url]
 [![TravisCI Build Status][travis-badge]][travis-badge-url]
@@ -12,8 +11,7 @@ ember-test-selectors
 Enabling better element selectors in [Ember.js](http://emberjs.com) tests
 
 
-Features
-------------------------------------------------------------------------------
+## Features
 
 - Provides a `testSelector()` function to help you select the right elements
 
@@ -30,16 +28,14 @@ More information on why that is useful are available on our
 [blog](http://simplabs.com/blog/2016/03/04/ember-test-selectors.html)!
 
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```bash
 ember install ember-test-selectors
 ```
 
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 In your templates you are now able to use `data-test-*` attributes, which are
 automatically removed from `production` builds:
@@ -108,8 +104,7 @@ As with `data-test-*` attributes in the templates, these properties, whether
 computed or not, will be removed automatically in production builds.
 
 
-Configuration
-------------------------------------------------------------------------------
+## Configuration
 
 You can override when the `data-test-*` attributes should be stripped from the
 build by modifying your `ember-cli-build.js` file:
@@ -129,8 +124,7 @@ was triggered by `ember test`. That means that if you use
 for `ember build -prod` they will be stripped out.
 
 
-License
-------------------------------------------------------------------------------
+## License
 
 ember-test-selectors is developed by and &copy;
 [simplabs GmbH](http://simplabs.com) and contributors. It is released under the
