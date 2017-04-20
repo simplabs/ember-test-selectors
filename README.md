@@ -28,9 +28,8 @@ Features
 More information on why that is useful are available on our
 [blog](http://simplabs.com/blog/2016/03/04/ember-test-selectors.html)!
 
-EmberMap also has a
-[great video introducing ember-test-selectors](https://embermap.com/video/ember-test-selectors).
-
+[![ember-test-selectors](https://cloud.githubusercontent.com/assets/2922250/25236119/0cc8e13a-25b5-11e7-8a5b-f29589384833.png)
+](https://embermap.com/video/ember-test-selectors)
 
 Installation
 ------------------------------------------------------------------------------
