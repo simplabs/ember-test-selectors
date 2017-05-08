@@ -26,7 +26,7 @@
   "dependencies": {
     "broccoli-stew": "^1.4.0",
     "ember-cli-babel": "^6.0.0",
-    "ember-cli-version-checker": "^1.2.0"
+    "ember-cli-version-checker": "^2.0.0"
   },
   "devDependencies": {
     "ember-cli": "2.13.0",
