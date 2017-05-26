@@ -26,32 +26,36 @@ module.exports = {
     }
   },
 
-  setupPreprocessorRegistry(type, registry) {
-    if (type === 'parent') {
-      this._assignOptions(registry.app);
+  _setupPreprocessorRegistry(registry) {
+    if (this._stripTestSelectors) {
+      let StripTestSelectorsTransform = require('./strip-test-selectors');
 
-      if (this._stripTestSelectors) {
-        let StripTestSelectorsTransform = require('./strip-test-selectors');
+      registry.add('htmlbars-ast-plugin', {
+        name: 'strip-test-selectors',
+        plugin: StripTestSelectorsTransform,
+        baseDir() { return __dirname; }
+      });
+    } else {
+      let TransformTestSelectorParamsToHashPairs = require('./transform-test-selector-params-to-hash-pairs');
 
-        registry.add('htmlbars-ast-plugin', {
-          name: 'strip-test-selectors',
-          plugin: StripTestSelectorsTransform,
-          baseDir() { return __dirname; }
-        });
-      } else {
-        let TransformTestSelectorParamsToHashPairs = require('./transform-test-selector-params-to-hash-pairs');
-
-        registry.add('htmlbars-ast-plugin', {
-          name: 'transform-test-selector-params-to-hash-pairs',
-          plugin: TransformTestSelectorParamsToHashPairs,
-          baseDir() { return __dirname; }
-        });
-      }
+      registry.add('htmlbars-ast-plugin', {
+        name: 'transform-test-selector-params-to-hash-pairs',
+        plugin: TransformTestSelectorParamsToHashPairs,
+        baseDir() { return __dirname; }
+      });
     }
   },
 
   included(app) {
     this._super.included.apply(this, arguments);
+    this._ensureFindHost();
+
+    let host = this._findHost();
+    this._assignOptions(host);
+
+    // we can't use the setupPreprocessorRegistry() hook as it is called to
+    // early and we do not have reliable access to `app.tests` there yet
+    this._setupPreprocessorRegistry(app.registry);
 
     // add the StripDataTestPropertiesPlugin to the list of plugins used by
     // the `ember-cli-babel` addon
@@ -96,5 +100,18 @@ module.exports = {
       tree = require('broccoli-stew').rm(tree, 'dummy/tests/unit/**/*.js');
     }
     return tree;
+  },
+
+  _ensureFindHost() {
+    if (!this._findHost) {
+      this._findHost = function findHostShim() {
+        let current = this;
+        let app;
+        do {
+          app = current.app || app;
+        } while (current.parent.parent && (current = current.parent));
+        return app;
+      };
+    }
   },
 };
