@@ -2,11 +2,13 @@
 /config/ember-try.js
 /dist
 /tests
+/node-tests
 /tmp
 **/.gitkeep
 .bowerrc
 .editorconfig
 .ember-cli
+*.ember-try
 .gitignore
 .eslintrc.js
 .watchmanconfig
