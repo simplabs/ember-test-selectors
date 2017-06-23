@@ -14,7 +14,8 @@ Enabling better element selectors in [Ember.js](http://emberjs.com) tests
 Features
 ------------------------------------------------------------------------------
 
-- Provides a `testSelector()` function to help you select the right elements
+- Provides a `ts` template string handler to help you select the right 
+  elements
 
 - Removes attributes starting with `data-test-` from HTML tags and
   component/helper invocations in your templates for production builds
@@ -52,21 +53,22 @@ automatically removed from `production` builds:
 </article>
 ```
 
-Once you've done that you can use the `testSelector()` function to create
+Once you've done that you can use the `ts` template string handler to create
 a CSS/jQuery selector that looks up the right elements:
 
 ```js
-import testSelector from 'ember-test-selectors';
+import { ts } from 'ember-test-selectors';
 
 // in Acceptance Tests:
 
-find(testSelector('post-title')) // => find('[data-test-post-title]')
-find(testSelector('resource-id', '2')) // => find('[data-test-resource-id="2"]')
+find(ts`%post-title`); // => find('[data-test-post-title]');
+find(ts`%resource-id=2`); // => find('[data-test-resource-id="2"]');
+find(ts`.blog %post-title input`); // => find('.blog [data-test-post-title] input');
 
 // in Component Integration Tests:
 
-this.$(testSelector('post-title')).click() // => this.$('[data-test-post-title]').click()
-this.$(testSelector('resource-id', '2')).click() // => this.$('[data-test-resource-id="2"]').click()
+this.$(ts`%post-title`).click(); // => this.$('[data-test-post-title]').click();
+this.$(ts`%resource-id=2`).click(); // => this.$('[data-test-resource-id="2"]').click();
 ```
 
 ### Usage in Components
