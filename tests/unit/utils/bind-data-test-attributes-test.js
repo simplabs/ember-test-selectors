@@ -1,9 +1,7 @@
 import { module, test } from 'qunit';
-import Ember from 'ember';
+import EmberObject, { computed } from '@ember/object';
 
 import bindDataTestAttributes from 'ember-test-selectors/utils/bind-data-test-attributes';
-
-const { Object: EmberObject, computed } = Ember;
 
 module('Unit | Utility | bind data test attributes');
 

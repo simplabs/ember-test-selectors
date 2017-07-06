@@ -1,6 +1,5 @@
-import Ember from 'ember';
-
-const { warn, isArray } = Ember;
+import { warn } from '@ember/debug';
+import { isArray } from '@ember/array';
 
 const TEST_SELECTOR_PREFIX = /data-test-.*/;
 
