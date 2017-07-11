@@ -62,7 +62,7 @@ module.exports = {
     // add the StripDataTestPropertiesPlugin to the list of plugins used by
     // the `ember-cli-babel` addon
     if (this._stripTestSelectors && !this._registeredWithBabel) {
-      let checker = new VersionChecker(this).for('ember-cli-babel', 'npm');
+      let checker = new VersionChecker(this.parent).for('ember-cli-babel', 'npm');
 
       app.options = app.options || {};
 
