@@ -14,8 +14,6 @@ Enabling better element selectors in [Ember.js](http://emberjs.com) tests
 Features
 ------------------------------------------------------------------------------
 
-- Provides a `testSelector()` function to help you select the right elements
-
 - Removes attributes starting with `data-test-` from HTML tags and
   component/helper invocations in your templates for production builds
 
@@ -52,21 +50,18 @@ automatically removed from `production` builds:
 </article>
 ```
 
-Once you've done that you can use the `testSelector()` function to create
-a CSS/jQuery selector that looks up the right elements:
+Once you've done that you can use attribute selectors to look up the elements:
 
 ```js
-import testSelector from 'ember-test-selectors';
-
 // in Acceptance Tests:
 
-find(testSelector('post-title')) // => find('[data-test-post-title]')
-find(testSelector('resource-id', '2')) // => find('[data-test-resource-id="2"]')
+find('[data-test-post-title]')
+find('[data-test-resource-id="2"]')
 
 // in Component Integration Tests:
 
-this.$(testSelector('post-title')).click() // => this.$('[data-test-post-title]').click()
-this.$(testSelector('resource-id', '2')).click() // => this.$('[data-test-resource-id="2"]').click()
+this.$('[data-test-post-title]').click()
+this.$('[data-test-resource-id="2"]').click()
 ```
 
 ### Usage in Components
