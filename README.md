@@ -124,6 +124,12 @@ was triggered by `ember test`. That means that if you use
 `ember test --environment=production` the test selectors will still work, but
 for `ember build -prod` they will be stripped out.
 
+Deprecations
+------------------------------------------------------------------------------
+
+The `testSelector` helper was deprecated in [v0.3.7](https://github.com/simplabs/ember-test-selectors/releases/tag/v0.3.7).
+There's a codemod available at https://github.com/lorcan/test-selectors-codemod
+that can help make the necessary transformations to address the deprecation.
 
 License
 ------------------------------------------------------------------------------

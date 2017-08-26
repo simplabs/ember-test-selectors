@@ -9,7 +9,7 @@ export default function testSelector(key, value) {
   deprecate(message, false, {
     id: 'ember-test-selectors.test-selector-helper',
     until: '0.4.0',
-    url: 'https://github.com/simplabs/ember-test-selectors#usage',
+    url: 'https://github.com/simplabs/ember-test-selectors#deprecations',
   });
 
   return isNone(value) ? `[data-test-${key}]` : `[data-test-${key}="${value}"]`;
