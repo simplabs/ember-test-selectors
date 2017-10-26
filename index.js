@@ -24,6 +24,8 @@ module.exports = {
     } else {
       this._stripTestSelectors = !app.tests;
     }
+
+    this._disableParamTransform = addonOptions.disableParamTransform;
   },
 
   _setupPreprocessorRegistry(registry) {
@@ -36,7 +38,7 @@ module.exports = {
         baseDir() { return __dirname; },
         cacheKey() { return 'strip-test-selectors'; },
       });
-    } else {
+    } else if (!this._disableParamTransform) {
       let TransformTestSelectorParamsToHashPairs = require('./transform-test-selector-params-to-hash-pairs');
 
       registry.add('htmlbars-ast-plugin', {
