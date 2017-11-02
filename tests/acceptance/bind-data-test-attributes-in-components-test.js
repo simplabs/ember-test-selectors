@@ -63,4 +63,7 @@ if (!config.stripTestSelectors) {
     assert.equal(find('.test10').find('div[data-test]').length, 0, 'data-test does not exists');
   });
 
+  test('it transforms data-test params to hash pairs on components', function(assert) {
+    assert.equal(find('.test11').find('div[data-test-something]').length, 1, 'data-test-something exists');
+  });
 }
