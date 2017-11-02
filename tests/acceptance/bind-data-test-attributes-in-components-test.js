@@ -3,6 +3,8 @@ import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 
 import config from 'dummy/config/environment';
 
+import { GTE_EMBER_1_13 } from 'ember-compatibility-helpers';
+
 if (!config.stripTestSelectors) {
 
   /*
@@ -47,23 +49,25 @@ if (!config.stripTestSelectors) {
     assert.equal(find('.test6').find('div[data-non-test]').length, 0, 'data-non-test does not exists');
   });
 
-  test('it binds data-test-* attributes with boolean values on components', function(assert) {
-    assert.equal(find('.test7').find('div[data-test-with-boolean-value]').length, 1, 'data-test-with-boolean-value exists');
-  });
+  if (GTE_EMBER_1_13) {
+    test('it binds data-test-* attributes with boolean values on components', function(assert) {
+      assert.equal(find('.test7').find('div[data-test-with-boolean-value]').length, 1, 'data-test-with-boolean-value exists');
+    });
 
-  test('it binds data-test-* attributes without values on components', function(assert) {
-    assert.equal(find('.test8').find('div[data-test-without-value]').length, 1, 'data-test-without-value exists');
-  });
+    test('it binds data-test-* attributes without values on components', function(assert) {
+      assert.equal(find('.test8').find('div[data-test-without-value]').length, 1, 'data-test-without-value exists');
+    });
 
-  test('it binds data-test-* attributes without values on block components', function(assert) {
-    assert.equal(find('.test9').find('div[data-test-without-value]').length, 1, 'data-test-without-value exists');
-  });
+    test('it binds data-test-* attributes without values on block components', function(assert) {
+      assert.equal(find('.test9').find('div[data-test-without-value]').length, 1, 'data-test-without-value exists');
+    });
 
-  test('it leaves data-test attribute without value untouched on components', function(assert) {
-    assert.equal(find('.test10').find('div[data-test]').length, 0, 'data-test does not exists');
-  });
+    test('it leaves data-test attribute without value untouched on components', function(assert) {
+      assert.equal(find('.test10').find('div[data-test]').length, 0, 'data-test does not exists');
+    });
 
-  test('it transforms data-test params to hash pairs on components', function(assert) {
-    assert.equal(find('.test11').find('div[data-test-something]').length, 1, 'data-test-something exists');
-  });
+    test('it transforms data-test params to hash pairs on components', function(assert) {
+      assert.equal(find('.test11').find('div[data-test-something]').length, 1, 'data-test-something exists');
+    });
+  }
 }
