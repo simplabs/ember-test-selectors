@@ -55,13 +55,9 @@ module.exports = {
     let host = this._findHost();
     this._assignOptions(host);
 
-    let emberChecker = new VersionChecker(app).forEmber();
-
-    if (emberChecker.isAbove('1.13.0')) {
-      // we can't use the setupPreprocessorRegistry() hook as it is called to
-      // early and we do not have reliable access to `app.tests` there yet
-      this._setupPreprocessorRegistry(app.registry);
-    }
+    // we can't use the setupPreprocessorRegistry() hook as it is called to
+    // early and we do not have reliable access to `app.tests` there yet
+    this._setupPreprocessorRegistry(app.registry);
 
     // add the StripDataTestPropertiesPlugin to the list of plugins used by
     // the `ember-cli-babel` addon
