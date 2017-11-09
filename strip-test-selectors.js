@@ -21,6 +21,10 @@ StripTestSelectorsTransform.prototype.transform = function(ast) {
         return !isTestSelector(attribute.name);
       });
     } else if (node.type === 'MustacheStatement' || node.type === 'BlockStatement') {
+      if ('sexpr' in node) {
+        node = node.sexpr;
+      }
+
       node.params = node.params.filter(function(param) {
         return !isTestSelector(param.original);
       });

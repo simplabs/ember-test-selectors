@@ -19,6 +19,10 @@ TransformTestSelectorParamsToHashPairs.prototype.transform = function(ast) {
 
   walker.visit(ast, function(node) {
     if (node.type === 'MustacheStatement' || node.type === 'BlockStatement') {
+      if ('sexpr' in node) {
+        node = node.sexpr;
+      }
+
       let testSelectorParams = [];
       let otherParams = [];
 
