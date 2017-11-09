@@ -12,12 +12,12 @@
 
 <div class="test7">{{data-test-component data-test-with-boolean-value=true}}</div>
 
-{{#if shouldRenderParamTests}}
-  <div class="test8">{{data-test-component data-test-without-value}}</div>
+<div class="test8">{{data-test-component data-test-without-value}}</div>
 
-  <div class="test9">{{#data-test-component data-test-without-value}}foo{{/data-test-component}}</div>
+<div class="test9">{{#data-test-component data-test-without-value}}foo{{/data-test-component}}</div>
 
+{{#if hasPositionalParams}}
   <div class="test10">{{data-test-component data-test}}</div>
-
-  <div class="test11">{{data-test-component data-test-something some-prop="prop"}}</div>
 {{/if}}
+
+<div class="test11">{{data-test-component data-test-something some-prop="prop"}}</div>
