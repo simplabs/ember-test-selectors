@@ -14,6 +14,7 @@
   "repository": "https://github.com/simplabs/ember-test-selectors",
   "scripts": {
     "build": "ember build",
+    "changelog": "lerna-changelog",
     "lint": "eslint app addon blueprints config server test-support tests *.js",
     "start": "ember server",
     "test": "npm run test:keep && npm run test:strip",
@@ -45,12 +46,23 @@
     "eslint-config-simplabs": "^0.4.0",
     "eslint-plugin-ember": "^3.6.2",
     "eslint-plugin-qunit": "^3.2.0",
+    "lerna-changelog": "^0.7.0",
     "loader.js": "^4.5.1",
     "mocha": "^4.0.0",
     "multidep": "^2.0.2"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
+  },
+  "changelog": {
+    "repo": "simplabs/ember-test-selectors",
+    "labels": {
+      "breaking": ":boom: Breaking Change",
+      "enhancement": ":rocket: Enhancement",
+      "bug": ":bug: Bug Fix",
+      "documentation": ":memo: Documentation",
+      "internal": ":house: Internal"
+    }
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
