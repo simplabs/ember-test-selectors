@@ -29,7 +29,7 @@
     "ember-cli-version-checker": "^2.0.0"
   },
   "devDependencies": {
-    "broccoli-stew": "^1.4.0",
+    "broccoli-stew": "^2.0.0",
     "ember-cli": "~3.1.0",
     "ember-cli-dependency-checker": "^2.0.1",
     "ember-cli-eslint": "^4.1.0",
