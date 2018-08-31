@@ -118,3 +118,15 @@ test('it skips if attributeBindings is a computed property', function(assert) {
 
   assert.deepEqual(instance.get('attributeBindings'), ['foo']);
 });
+
+test('it breaks if tagName is empty', function(assert) {
+  let Fixture = EmberObject.extend({
+    tagName: '',
+    'data-test-from-factory': 'foo',
+  });
+  let instance = Fixture.create({
+    'data-test-from-invocation': 'bar',
+  });
+
+  assert.throws(() => bindDataTestAttributes(instance));
+});

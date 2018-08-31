@@ -20,7 +20,7 @@ export default function bindDataTestAttributes(component) {
   let message = `ember-test-selectors could not bind data-test-* properties on ${component} ` +
     `automatically because tagName is empty.`;
 
-  assert(message, tagName!== '', {
+  assert(message, tagName !== '', {
     id: 'ember-test-selectors.empty-tag-name',
   });
 
