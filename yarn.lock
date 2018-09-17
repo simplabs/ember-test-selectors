@@ -2531,9 +2531,9 @@ eslint-plugin-ember@^5.2.0:
     ember-rfc176-data "^0.3.3"
     snake-case "^2.1.0"
 
-eslint-plugin-qunit@^3.2.0:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-qunit/-/eslint-plugin-qunit-3.3.1.tgz#49c8bf08eb036836ec5726ed97412623bc18a5b5"
+eslint-plugin-qunit@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-qunit/-/eslint-plugin-qunit-4.0.0.tgz#5945ba3434bfe8879bea195192e906701051cf01"
 
 eslint-scope@^3.7.1:
   version "3.7.1"
