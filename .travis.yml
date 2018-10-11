@@ -14,21 +14,21 @@ addons:
   chrome: stable
 
 cache:
-  directories:
-     - $HOME/.npm
+  yarn: true
 
 before_install:
-  - npm config set spin false
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
 
 install:
-  - npm install
+  - yarn install --no-lockfile
 
 script:
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
-  - npm run test:all -- --skip-cleanup
-  - npm run test:node
-  - npm run lint
+  - yarn lint
+  - yarn test:node
+  - yarn test:all --skip-cleanup
 
 deploy:
   provider: npm
