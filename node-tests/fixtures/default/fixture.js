@@ -8,4 +8,10 @@ export default Ember.Component.extend({
   'data-test-foobar': Ember.computed('data-test-foo', function() {
     return `${this.get('data-test-foo')}bar`
   }),
+  supportsDataTestProperties: true
+});
+
+export let c2 = Ember.Component.extend({
+  foo: 'foo',
+  'supportsDataTestProperties': true
 });

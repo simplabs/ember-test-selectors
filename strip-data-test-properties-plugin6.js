@@ -3,12 +3,14 @@
 /* eslint-env node */
 
 let TEST_SELECTOR_PREFIX = /^data-test-.*/;
+let SUPPORTS_DATA_TEST_PROP = 'supportsDataTestProperties';
 
 function StripDataTestPropertiesPlugin() {
   return {
     visitor: {
       Property(path) {
-        if (TEST_SELECTOR_PREFIX.test(path.node.key.value)) {
+        let nodeName = path.node.key.name || path.node.key.value;
+        if (TEST_SELECTOR_PREFIX.test(nodeName) || nodeName === SUPPORTS_DATA_TEST_PROP) {
           path.remove();
         }
       },

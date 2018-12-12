@@ -3,12 +3,14 @@
 /* eslint-env node */
 
 let TEST_SELECTOR_PREFIX = /^data-test-.*/;
+let SUPPORTS_DATA_TEST_PROP = 'supportsDataTestProperties';
 
 function StripDataTestPropertiesPlugin(babel) {
   return new babel.Plugin('ember-test-selectors', {
     visitor: {
       Property(node) {
-        if (TEST_SELECTOR_PREFIX.test(node.key.value)) {
+        let nodeName = node.key.name || node.key.value;
+        if (TEST_SELECTOR_PREFIX.test(nodeName) || nodeName === SUPPORTS_DATA_TEST_PROP) {
           this.dangerouslyRemove();
         }
       },

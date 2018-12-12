@@ -4,3 +4,6 @@ export default Ember.Component.extend({
   'data-test': 'test',
   'metadata-test-foo': 'metadata'
 });
+export let c2 = Ember.Component.extend({
+  foo: 'foo'
+});

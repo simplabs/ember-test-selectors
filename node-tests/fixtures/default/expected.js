@@ -15,4 +15,7 @@ exports['default'] = _ember2['default'].Component.extend({
   'data-test': 'test',
   'metadata-test-foo': 'metadata'
 });
-module.exports = exports['default'];
+var c2 = _ember2['default'].Component.extend({
+  foo: 'foo'
+});
+exports.c2 = c2;

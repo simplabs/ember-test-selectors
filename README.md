@@ -114,6 +114,49 @@ export default Ember.Component({
 As with `data-test-*` attributes in the templates, these properties, whether
 computed or not, will be removed automatically in production builds.
 
+### Usage with tagless components
+
+Since tagless components do not have a root element, `data-test-*` attributes
+passed to them cannot be bound to the DOM. If you try to pass a `data-test-*`
+attribute to a tagless component, or define one in its Javascript class,
+`ember-test-selectors` will throw an assertion error.
+
+However, there are some cases where you might want to pass a `data-test-*`
+attribute to a tagless component, for example a tagless wrapper component:
+
+```js
+// comment-wrapper.js
+export default Ember.Component({
+  tagName: ''
+})
+```
+
+```hbs
+{{!-- comment-wrapper.hbs --}}
+Comment:
+{{comment-list-item comment=comment data-test-comment-id=data-test-comment-id}}
+```
+
+```handlebars
+{{!-- comment-list.hbs --}}
+{{#each comments as |comment|}}
+  {{comment-wrapper comment=comment data-test-comment-id=comment.id}}
+{{/each}}
+```
+
+In this case, to prevent the assertion on the specific `comment-wrapper`
+component, you can specify `supportsDataTestProperties` on the class:
+
+```js
+// comment-wrapper.js
+export default Ember.Component({
+  tagName: '',
+  supportsDataTestProperties: true
+})
+```
+
+`supportsDataTestProperties`, like `data-test-*` properties, will be stripped
+from the build.
 
 Configuration
 ------------------------------------------------------------------------------

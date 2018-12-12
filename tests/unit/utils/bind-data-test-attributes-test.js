@@ -129,6 +129,20 @@ test('it breaks if tagName is empty', function(assert) {
   assert.throws(() => bindDataTestAttributes(instance));
 });
 
+test('it does not breaks if tagName is empty and supportsDataTestProperties is set', function(assert) {
+  let Fixture = EmberObject.extend({
+    tagName: '',
+    supportsDataTestProperties: true,
+    'data-test-from-factory': 'foo',
+  });
+  let instance = Fixture.create({
+    'data-test-from-invocation': 'bar',
+  });
+
+  bindDataTestAttributes(instance);
+  assert.ok(true, 'did not throw');
+});
+
 test('issue #106', function(assert) {
   let Component = EmberObject.extend({});
 

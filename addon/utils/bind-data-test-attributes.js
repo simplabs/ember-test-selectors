@@ -15,14 +15,16 @@ export default function bindDataTestAttributes(component) {
     return;
   }
 
-  let tagName = component.get('tagName');
+  if (!component.get('supportsDataTestProperties')) {
+    let tagName = component.get('tagName');
 
-  let message = `ember-test-selectors could not bind data-test-* properties on ${component} ` +
-    `automatically because tagName is empty.`;
+    let message = `ember-test-selectors could not bind data-test-* properties on ${component} ` +
+      `automatically because tagName is empty.`;
 
-  assert(message, tagName !== '', {
-    id: 'ember-test-selectors.empty-tag-name',
-  });
+    assert(message, tagName !== '', {
+      id: 'ember-test-selectors.empty-tag-name',
+    });
+  }
 
   let attributeBindings = component.getWithDefault('attributeBindings', []);
   if (!isArray(attributeBindings)) {
