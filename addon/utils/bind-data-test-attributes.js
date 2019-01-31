@@ -18,8 +18,10 @@ export default function bindDataTestAttributes(component) {
   if (!component.get('supportsDataTestProperties')) {
     let tagName = component.get('tagName');
 
-    let message = `ember-test-selectors could not bind data-test-* properties on ${component} ` +
-      `automatically because tagName is empty.`;
+    let message = String(`ember-test-selectors could not bind data-test-* properties on ${component} ` +
+      `automatically because tagName is empty. If you did this intentionally, see ` +
+      `https://github.com/simplabs/ember-test-selectors#usage-in-computed-properties ` +
+      `for instructions on how to disable this assertion.`);
 
     assert(message, tagName !== '', {
       id: 'ember-test-selectors.empty-tag-name',
