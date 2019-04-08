@@ -25,7 +25,7 @@
     "test:strip": "STRIP_TEST_SELECTORS=true ember test"
   },
   "dependencies": {
-    "calculate-cache-key-for-tree": "^1.1.0",
+    "calculate-cache-key-for-tree": "^2.0.0",
     "ember-cli-babel": "^6.8.2",
     "ember-cli-version-checker": "^3.1.3"
   },
