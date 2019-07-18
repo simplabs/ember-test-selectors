@@ -137,7 +137,7 @@ attribute to a tagless component, for example a tagless wrapper component:
 // comment-wrapper.js
 export default Ember.Component({
   tagName: ''
-})
+});
 ```
 
 ```hbs
@@ -161,11 +161,53 @@ component, you can specify `supportsDataTestProperties` on the class:
 export default Ember.Component({
   tagName: '',
   supportsDataTestProperties: true
-})
+});
 ```
 
 `supportsDataTestProperties`, like `data-test-*` properties, will be stripped
 from the build.
+
+#### With splattributes
+Splattributes of angle brackets invocations, introduced in Ember.js 3.4 or
+available through the
+[ember-angle-bracket-invocation-polyfill](https://github.com/rwjblue/ember-angle-bracket-invocation-polyfill)
+for earlier versions of Ember.js, work well with test selectors and tagless
+components.
+
+For instance, we have a `SpecialButton` that wraps a `<button>` element. We can
+then pass arbitrary test selectors through splattributes, as follows:
+
+```js
+// special-button.js
+export default Ember.Component({
+  tagName: '',
+  supportsDataTestProperties: true
+});
+```
+
+```hbs
+{{!-- special-button.hbs --}}
+<button ...attributes>
+  {{yield}}
+</button>
+```
+
+Then
+
+```hbs
+<SpecialButton data-test-description="invite-user">
+  Invite
+</SpecialButton>
+```
+
+will yield
+
+
+```html
+<button data-test-description="invite-user">
+  Invite
+</button>
+```
 
 Configuration
 ------------------------------------------------------------------------------
