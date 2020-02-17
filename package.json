@@ -52,7 +52,7 @@
     "loader.js": "^4.5.1",
     "mocha": "^7.0.1",
     "multidep": "^2.0.2",
-    "qunit-dom": "^0.9.1"
+    "qunit-dom": "^1.0.0"
   },
   "engines": {
     "node": "10.* || >= 12.*"
