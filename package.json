@@ -48,7 +48,7 @@
     "eslint-config-simplabs": "^0.4.0",
     "eslint-plugin-ember": "^7.8.1",
     "eslint-plugin-qunit": "^4.0.0",
-    "lerna-changelog": "^0.8.0",
+    "lerna-changelog": "^1.0.0",
     "loader.js": "^4.5.1",
     "mocha": "^7.0.1",
     "multidep": "^2.0.2",
