@@ -2317,7 +2317,7 @@ broccoli-merge-trees@^2.0.0:
     broccoli-plugin "^1.3.0"
     merge-trees "^1.0.1"
 
-broccoli-merge-trees@^3.0.0, broccoli-merge-trees@^3.0.1, broccoli-merge-trees@^3.0.2:
+broccoli-merge-trees@^3.0.1, broccoli-merge-trees@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/broccoli-merge-trees/-/broccoli-merge-trees-3.0.2.tgz#f33b451994225522b5c9bcf27d59decfd8ba537d"
   integrity sha512-ZyPAwrOdlCddduFbsMyyFzJUrvW6b04pMvDiAQZrCwghlvgowJDY+EfoXn+eR1RRA5nmGHJ+B68T63VnpRiT1A==
@@ -3455,7 +3455,7 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.16.0, ember-cli-babel@^6.8.1:
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.1.2, ember-cli-babel@^7.11.0, ember-cli-babel@^7.12.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.18.0, ember-cli-babel@^7.19.0, ember-cli-babel@^7.7.3:
+ember-cli-babel@^7.1.2, ember-cli-babel@^7.11.0, ember-cli-babel@^7.12.0, ember-cli-babel@^7.18.0, ember-cli-babel@^7.19.0, ember-cli-babel@^7.7.3:
   version "7.19.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.19.0.tgz#e6eddea18a867231fcf90a80689e92b98be9a63b"
   integrity sha512-HiWKuoyy35vGEr+iCw6gUnQ3pS5qslyTlKEDW8cVoMbvZNGYBgRxHed5nklVUh+BS74AwR9lsp25BTAagYAP9Q==
@@ -3775,17 +3775,17 @@ ember-qunit@^4.6.0:
     ember-cli-test-loader "^2.2.0"
     qunit "^2.9.3"
 
-ember-resolver@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-7.0.0.tgz#07ca86b3bae373395b44bba784b8c133f75d61c2"
-  integrity sha512-tqyWk9E1P5LL42x7AnVoE25a/YWe0WcwAr8LXasm5V7Az3vFR/zbFtwN0oI3tpoSP/nCoGWDct6dRYlXrQjqBQ==
+ember-resolver@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-8.0.0.tgz#cc48682c1e2f5d208499b1ecdcac1e43839683bd"
+  integrity sha512-M0P1++26h9KuEpg14VDrg37daneXrj9Hv9kuM0Xzsm38guma9JzO1+BvJcL/u5EGiJSUjtLtYvakk/6feFlo6A==
   dependencies:
     babel-plugin-debug-macros "^0.3.3"
-    broccoli-funnel "^2.0.2"
-    broccoli-merge-trees "^3.0.0"
-    ember-cli-babel "^7.13.2"
-    ember-cli-version-checker "^3.1.3"
-    resolve "^1.14.0"
+    broccoli-funnel "^3.0.2"
+    broccoli-merge-trees "^4.2.0"
+    ember-cli-babel "^7.18.0"
+    ember-cli-version-checker "^5.0.2"
+    resolve "^1.15.1"
 
 ember-rfc176-data@^0.3.12:
   version "0.3.12"
@@ -7600,7 +7600,7 @@ resolve@1.9.0:
   dependencies:
     path-parse "^1.0.6"
 
-resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.1, resolve@^1.13.1, resolve@^1.14.0, resolve@^1.14.2, resolve@^1.15.1, resolve@^1.3.2, resolve@^1.3.3, resolve@^1.4.0, resolve@^1.5.0, resolve@^1.8.1:
+resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.1, resolve@^1.13.1, resolve@^1.14.2, resolve@^1.15.1, resolve@^1.3.2, resolve@^1.3.3, resolve@^1.4.0, resolve@^1.5.0, resolve@^1.8.1:
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.15.1.tgz#27bdcdeffeaf2d6244b95bb0f9f4b4653451f3e8"
   integrity sha512-84oo6ZTtoTUpjgNEr5SJyzQhzL72gaRodsSfyxC/AXRvwu0Yse9H8eF9IpGo7b8YetZhlI6v7ZQ6bKBFV/6S7w==
