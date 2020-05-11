@@ -4060,10 +4060,10 @@ eslint-plugin-ember@^8.5.1:
     ember-rfc176-data "^0.3.12"
     snake-case "^3.0.3"
 
-eslint-plugin-qunit@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-qunit/-/eslint-plugin-qunit-4.0.0.tgz#5945ba3434bfe8879bea195192e906701051cf01"
-  integrity sha512-+0i2xcYryUoLawi47Lp0iJKzkP931G5GXwIOq1KBKQc2pknV1VPjfE6b4mI2mR2RnL7WRoS30YjwC9SjQgJDXQ==
+eslint-plugin-qunit@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-qunit/-/eslint-plugin-qunit-4.1.0.tgz#d4cfd17fdd8560bc865f0160b0abe73aaf4b00fe"
+  integrity sha512-3vlVGYKYuxl9nvlZHWTmBEYCWMZO5p/MLn5/7JwpJhVXRswwLD7VarJ9yN9PLOdJRyC9m95A1VZnVmXGjF7Gcg==
 
 eslint-scope@^5.0.0:
   version "5.0.0"
