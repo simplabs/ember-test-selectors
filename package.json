@@ -44,7 +44,7 @@
     "ember-source": "~3.20.3",
     "ember-source-channel-url": "^3.0.0",
     "ember-try": "^1.4.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.6.0",
     "eslint-config-simplabs": "^0.4.0",
     "eslint-plugin-ember": "^8.9.2",
     "eslint-plugin-qunit": "^4.2.0",
