@@ -30,7 +30,7 @@ export default function bindDataTestAttributes(component) {
     id: 'ember-test-selectors.empty-tag-name',
   });
 
-  let attributeBindings = component.getWithDefault('attributeBindings', []);
+  let attributeBindings = component.get('attributeBindings') || [];
   if (!isArray(attributeBindings)) {
     attributeBindings = [attributeBindings];
   } else {
