@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "broccoli-stew": "^3.0.0",
-    "ember-cli": "~3.20.0",
+    "ember-cli": "~3.21.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-htmlbars": "^5.3.1",
     "ember-cli-inject-live-reload": "^2.0.2",
