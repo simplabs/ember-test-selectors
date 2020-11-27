@@ -100,7 +100,7 @@ module('Unit | Utility | bind data test attributes', function() {
   test('it breaks if attributeBindings is a computed property', function(assert) {
     let Fixture = EmberObject.extend({
       attributeBindings: computed('prop', function() {
-        return [this.get('prop')];
+        return [this.prop];
       }).readOnly(),
 
       foo: 5,

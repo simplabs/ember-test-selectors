@@ -103,4 +103,4 @@ jobs:
       - name: test
         env:
           TEST_SUITE: ${{ matrix.test-suite }}
-        run: yarn test:all --skip-cleanup
+        run: yarn test:ember-compatibility --skip-cleanup

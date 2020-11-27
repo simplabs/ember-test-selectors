@@ -1,6 +1,4 @@
-import Ember from 'ember';
-
-const { VERSION } = Ember;
+import { VERSION } from '@ember/version';
 
 export const hasPositionalParams = hasEmberVersion(1, 13);
 export const hasReliablePositionalParams = hasEmberVersion(2, 3);

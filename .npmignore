@@ -1,30 +1,40 @@
-.dependabot/
-.github/
-/bower_components
-/config/
-/dist
-/tests
-/node-tests
-/tmp
-**/.gitkeep
+# compiled output
+/dist/
+/tmp/
 *.tgz
-.bowerrc
-.editorconfig
-.ember-cli
-.eslint*
-.gitignore
-.watchmanconfig
-.travis.yml
-bower.json
-ember-cli-build.js
-RELEASE.md
-testem.js
-yarn.lock
+
+# dependencies
+/bower_components/
+
+# misc
+/.bowerrc
+/.dependabot/
+/.editorconfig
+/.ember-cli
+/.env*
+/.eslintignore
+.eslintrc.js
+/.git/
+/.github/
+/.gitignore
+/.template-lintrc.js
+/.travis.yml
+/.watchmanconfig
+/bower.json
+/config/ember-try.js
+/CONTRIBUTING.md
+/ember-cli-build.js
+/node-tests/
+/RELEASE.md
+/testem.js
+/tests/
+/yarn.lock
+.gitkeep
 
 # ember-try
-.node_modules.ember-try/
-bower.json.ember-try
-package.json.ember-try
+/.node_modules.ember-try/
+/bower.json.ember-try
+/package.json.ember-try
 
 # IDE files
 .idea/

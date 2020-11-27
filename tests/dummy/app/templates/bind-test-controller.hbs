@@ -1,0 +1,31 @@
+<div class="test1"><DataTestComponent @data-test-first="foobar" /></div>
+
+<div class="test2"><DataTestComponent @data-test-first="foobar">hello</DataTestComponent></div>
+
+<div class="test3"><DataTestComponent @data-test-first="foobar" @data-test-second="second" /></div>
+
+<div class="test4"><DataTestComponent @data-test-first="foobar" @data-non-test="baz" /></div>
+
+<div class="test5"><DataTestComponent @data-test="foo" /></div>
+
+<div class="test6"><DataTestComponent @data-non-test="foo" /></div>
+
+<div class="test7"><DataTestComponent @data-test-with-boolean-value={{true}} /></div>
+
+<div class="test8"><DataTestComponent @data-test-without-value /></div>
+
+<div class="test9"><DataTestComponent @data-test-without-value>foo</DataTestComponent></div>
+
+{{#if this.hasPositionalParams}}
+  <div class="test10"><DataTestComponent @data-test /></div>
+{{/if}}
+
+<div class="test11"><DataTestComponent @data-test-something some-prop="prop" /></div>
+
+<div class="test-link-to-block"><LinkTo @route="index" data-test-foo="bar">Label</LinkTo></div>
+
+<div class="test-link-to-inline"><LinkTo @route="index" data-test-foo="bar">Label</LinkTo></div>
+
+<div class="test12"><TaglessComponent @data-test-with-boolean-value={{true}} /></div>
+
+<div class="test13"><TaglessComponent @data-test-without-value /></div>

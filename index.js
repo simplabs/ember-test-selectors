@@ -6,7 +6,7 @@ const VersionChecker = require('ember-cli-version-checker');
 const cacheKeyForTree = require('calculate-cache-key-for-tree');
 
 module.exports = {
-  name: 'ember-test-selectors',
+  name: require('./package').name,
 
   _assignOptions(app) {
     let ui = app.project.ui;
@@ -99,6 +99,7 @@ module.exports = {
     // we do this because these tests depend on the "addon" and "app" folders being available,
     // which is not the case if they are stripped out of the build.
     if (type === 'test' && this._stripTestSelectors && this.project.name() === 'ember-test-selectors') {
+      // eslint-disable-next-line node/no-unpublished-require -- This is only invoked during tests.
       tree = require('broccoli-stew').rm(tree, 'dummy/tests/unit/**/*.js');
     }
     return tree;

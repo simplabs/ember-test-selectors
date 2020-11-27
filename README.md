@@ -33,9 +33,9 @@ More information on why that is useful are available on our
 Compatibility
 ------------------------------------------------------------------------------
 
-- Ember 3.8 or above
-- Ember CLI 3.8 or above
-- Node.js 10 or above
+* Ember.js v3.16 or above
+* Ember CLI v2.13 or above
+* Node.js v10 or above
 
 
 Installation
@@ -123,6 +123,13 @@ that the attributes will be stripped for production builds, unless the build
 was triggered by `ember test`. That means that if you use
 `ember test --environment=production` the test selectors will still work, but
 for `ember build -prod` they will be stripped out.
+
+
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
 
 License
 ------------------------------------------------------------------------------
