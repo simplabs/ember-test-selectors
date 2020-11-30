@@ -4249,10 +4249,10 @@ eslint-plugin-ember@^9.6.0:
     lodash.kebabcase "^4.1.1"
     snake-case "^3.0.3"
 
-eslint-plugin-qunit@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-qunit/-/eslint-plugin-qunit-5.0.0.tgz#2f33707b97f7b0a338c16378794e325550a1431b"
-  integrity sha512-F1AuwxsJ4YgSQztd3OZCNtM3DXpiDF9bpXbVCBcBU+8l5WOAAxfJHNYqP3tOhEEbIJPRkcTgk0SAJPYtdVjBmQ==
+eslint-plugin-qunit@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-qunit/-/eslint-plugin-qunit-5.1.0.tgz#62b06317f611a74724e6eb5e7870df70435e6e58"
+  integrity sha512-B0OYkOFx3N3zgAMlLzSDWqhlHXcZV+XSaYqHHEbOKXg4BzviVkapJnzxi2Wc4xdBasY+sksUPglYPOx7GO+EAw==
 
 eslint-scope@^5.1.1:
   version "5.1.1"
