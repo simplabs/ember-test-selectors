@@ -4237,14 +4237,15 @@ eslint-config-simplabs@^0.4.0:
     pify "^2.3.0"
     supports-color "^3.2.3"
 
-eslint-plugin-ember@^10.0.2:
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-10.0.2.tgz#5e81c6baf75ca62fce424c0a422e494cee2d4421"
-  integrity sha512-GKZhLsnvODkAhORlsnT24D451Kl47ykMoqYKktZJR2Q3+3kklcU0Bj8xkqKJj/HVhsBH80FD74yTiYZKavSqFg==
+eslint-plugin-ember@^10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-10.1.1.tgz#27c2dbff2e4236434823b793721a5a9ef0c52e95"
+  integrity sha512-slQIfUS0C9C8uYdud/7EvrD1TX5nPPRFTQ1bXUiIhgfWTr60b4qDF1TUCwUT3fwi57Hwe1tJfNL4dqK7omQsqA==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
     css-tree "^1.0.0-alpha.39"
     ember-rfc176-data "^0.3.15"
+    eslint-utils "^2.1.0"
     lodash.kebabcase "^4.1.1"
     snake-case "^3.0.3"
 
