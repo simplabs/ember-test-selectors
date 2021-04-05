@@ -30,7 +30,7 @@
     "ember-cli-version-checker": "^5.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.13",
+    "@babel/core": "^7.13.14",
     "broccoli-stew": "^3.0.0",
     "ember-cli": "~3.25.2",
     "ember-cli-dependency-checker": "^3.2.0",
