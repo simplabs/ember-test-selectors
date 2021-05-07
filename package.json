@@ -52,7 +52,7 @@
     "eslint-plugin-qunit": "6.1.0",
     "lerna-changelog": "1.0.1",
     "loader.js": "4.7.0",
-    "mocha": "8.3.2",
+    "mocha": "8.4.0",
     "multidep": "2.0.2",
     "qunit": "2.15.0",
     "qunit-dom": "1.6.0",
