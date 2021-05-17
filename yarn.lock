@@ -5465,12 +5465,12 @@ eslint-plugin-ember@10.4.2:
     requireindex "^1.2.0"
     snake-case "^3.0.3"
 
-eslint-plugin-qunit@6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-qunit/-/eslint-plugin-qunit-6.1.0.tgz#72345e0a98088cdae69929acad37cfe0daccbf6c"
-  integrity sha512-FT101NNIwxyFiznlORzjhV9uSvl4JXDdNUyiMEHedMqvdTv0z5kOjaNv3UlFq5uL7znPlz23RmJUtPxw3fH3HA==
+eslint-plugin-qunit@6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-qunit/-/eslint-plugin-qunit-6.1.1.tgz#f0a02fab4f61dc02b96b3ce25cbeb480623e1cc5"
+  integrity sha512-XAEULG0Std1wtAZrFDzL//TcJDQhLBOe2DeZDCQ4fxjbk9grDkKaWh4xpNhPQdCp4cL0Wx3PVE2yP7s4VCMH2g==
   dependencies:
-    eslint-utils "^2.1.0"
+    eslint-utils "^3.0.0"
     requireindex "^1.2.0"
 
 eslint-scope@^4.0.3:
@@ -5495,6 +5495,13 @@ eslint-utils@^2.1.0:
   integrity sha512-w94dQYoauyvlDc43XnGB8lU3Zt713vNChgt4EWwhXAP2XkBvndfxF0AgIqKOOasjPIPzj9JqgwkwbCYD0/V3Zg==
   dependencies:
     eslint-visitor-keys "^1.1.0"
+
+eslint-utils@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-utils/-/eslint-utils-3.0.0.tgz#8aebaface7345bb33559db0a1f13a1d2d48c3672"
+  integrity sha512-uuQC43IGctw68pJA1RgbQS8/NP7rch6Cwd4j3ZBtgo4/8Flj4eGE7ZYSZRN3iq5pVUv6GPdW5Z1RFleo84uLDA==
+  dependencies:
+    eslint-visitor-keys "^2.0.0"
 
 eslint-visitor-keys@^1.1.0, eslint-visitor-keys@^1.3.0:
   version "1.3.0"
