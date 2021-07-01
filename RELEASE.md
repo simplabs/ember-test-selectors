@@ -39,13 +39,13 @@ Once the prep work is completed, the actual release is straight forward:
 * Next, ensure that you have installed your projects dependencies:
 
 ```
-yarn install
+pnpm install
 ```
 
 * And last (but not least 😁) do your release:
 
 ```
-yarn release
+pnpm release
 ```
 
 [release-it](https://github.com/release-it/release-it/) manages the actual
